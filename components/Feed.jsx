@@ -31,6 +31,7 @@ const Feed = () => {
         .then((res) => res.json())
         .then((data) => {
           setPosts(data);
+          console.log(data);
         });
     };
     fetchPosts();
