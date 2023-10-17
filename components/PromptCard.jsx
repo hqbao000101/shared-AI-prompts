@@ -33,7 +33,8 @@ const PromptCard = ({ post, handleTagClick, handleEdit, handleDelete }) => {
             <h3
               className="font-semibold text-gray-900 font-satoshi"
               onClick={() => {
-                session?.user.id !== post.creator._id &&
+                session?.user &&
+                  session?.user.id !== post.creator._id &&
                   router.push(
                     `/profile?id=${post.creator._id}&name=${post.creator.username}`
                   );
