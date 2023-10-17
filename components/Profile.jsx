@@ -4,7 +4,9 @@ const Profile = ({ name, desc, data, handleEdit, handleDelete }) => {
   return (
     <section className="w-full">
       <h1 className="text-left head_text">
-        <span className="blue_gradient">{name} Profile</span>
+        <span className="blue_gradient">
+          {name === "My" ? name + " Profile" : "Profile of " + name}
+        </span>
       </h1>
       <p className="text-left desc">{desc}</p>
       <div className="mt-10 prompt_layout">
