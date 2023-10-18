@@ -43,6 +43,14 @@ const Feed = () => {
   };
 
   useEffect(() => {
+    const handleEnterSearch = (e) => {
+      if (e.keyCode === 13) {
+        e.preventDefault();
+        return false;
+      }
+    };
+    window.addEventListener("keypress", handleEnterSearch);
+
     const fetchPosts = async () => {
       await fetch("/api/prompt")
         .then((res) => res.json())
@@ -51,6 +59,10 @@ const Feed = () => {
         });
     };
     fetchPosts();
+
+    return () => {
+      window.removeEventListener("keypress", handleEnterSearch);
+    };
   }, []);
 
   return (
